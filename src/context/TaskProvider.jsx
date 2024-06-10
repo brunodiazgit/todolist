@@ -1,11 +1,6 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useState } from "react"
-
-const TaskContext = createContext()
-
-export const useTask = () => {
-    return useContext(TaskContext)
-}
+import {taskContext} from './TaskContext'
+import { useState } from "react"
 
 export const TaskProvider = ({ children }) => {
     const [tasks, setTasks] = useState([])
@@ -27,8 +22,10 @@ export const TaskProvider = ({ children }) => {
     }
 
     return (
-        <TaskContext.Provider value={{ tasks, addTask, toggleTask, deleteTask }}>
+        <taskContext.Provider value={{ tasks, addTask, toggleTask, deleteTask }}>
             {children}
-        </TaskContext.Provider>
+        </taskContext.Provider>
     )
 }
+
+export default TaskProvider

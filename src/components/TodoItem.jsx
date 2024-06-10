@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useTask } from "../context/TaskProvider"
+import { useTask } from "../context/TaskContext"
 function TodoItem({task}){
     const {toggleTask, deleteTask} = useTask()
     return(

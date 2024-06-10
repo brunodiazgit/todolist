@@ -1,5 +1,5 @@
 import Todo from "./components/Todo"
-import { TaskProvider } from "./context/TaskProvider"
+import TaskProvider from "./context/TaskProvider"
 
 function App() {
 
