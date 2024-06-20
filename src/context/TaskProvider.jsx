@@ -17,12 +17,20 @@ export const TaskProvider = ({ children }) => {
         )
     }
 
+    const completedTasks = () =>{
+        return tasks.filter(task => task.completed)
+    }
+
+    const pendingTasks = () => {
+        return tasks.filter(task => !task.completed)
+    }
+
     const deleteTask = id => {
         setTasks(tasks.filter(task => task.id !== id))
     }
 
     return (
-        <taskContext.Provider value={{ tasks, addTask, toggleTask, deleteTask }}>
+        <taskContext.Provider value={{ tasks, addTask, toggleTask, deleteTask, completedTasks, pendingTasks }}>
             {children}
         </taskContext.Provider>
     )
