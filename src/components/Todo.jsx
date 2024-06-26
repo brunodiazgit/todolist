@@ -1,5 +1,5 @@
 import { useTask } from "../context/TaskContext"
-import { useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import TodoList from "./TodoList"
 import { FaCheck, FaCircle, FaList } from 'react-icons/fa'
 
@@ -33,12 +33,12 @@ function Todo() {
     }
 
 
-    const handleFilter = (filterType)=>{
-        if(filterType === true){
+    const handleFilter = (filterType) => {
+        if (filterType === true) {
             setFilteredTasks(completedTasks())
-        } else if(filterType === false){
+        } else if (filterType === false) {
             setFilteredTasks(pendingTasks())
-        } else{
+        } else {
             setFilteredTasks(tasks)
         }
     }
@@ -57,16 +57,16 @@ function Todo() {
                 <button className="bg-gray-900 rounded-lg w-32 h-10 text-green-600 hover:bg-gray-700" onClick={handleAddTask}>Add Todo</button>
             </div>
             <div className="flex gap-10">
-                    <button onClick={() => handleFilter(true)} className="flex justify-center items-center h-10 w-16 bg-black rounded-lg border-gray-500 border-2 text-green-700 hover:bg-gray-800">
-                        <FaCheck /> 
-                    </button>
-                    <button onClick={() => handleFilter(false)} className="flex justify-center items-center h-10 w-16 bg-black rounded-lg border-gray-500 border-2 text-green-700 hover:bg-gray-800">
-                        <FaCircle /> 
-                    </button>
-                    <button onClick={() => handleFilter(null)} className="flex justify-center items-center h-10 w-16 bg-black rounded-lg border-gray-500 border-2 text-green-700 hover:bg-gray-800">
-                        <FaList /> 
-                    </button>
-                </div>
+                <button onClick={() => handleFilter(true)} className="flex justify-center items-center h-10 w-16 bg-black rounded-lg border-gray-500 border-2 text-green-700 hover:bg-gray-800">
+                    <FaCheck />
+                </button>
+                <button onClick={() => handleFilter(false)} className="flex justify-center items-center h-10 w-16 bg-black rounded-lg border-gray-500 border-2 text-green-700 hover:bg-gray-800">
+                    <FaCircle />
+                </button>
+                <button onClick={() => handleFilter(null)} className="flex justify-center items-center h-10 w-16 bg-black rounded-lg border-gray-500 border-2 text-green-700 hover:bg-gray-800">
+                    <FaList />
+                </button>
+            </div>
             {error && <p className="text-red-500">{error}</p>}
             <TodoList tasks={filteredTasks} />
         </div>
